@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }) => {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-                navigation.navigate("Home")
+                navigation.replace('Home')
             }
         })
         return unsubscribe;
@@ -24,7 +24,7 @@ const LoginScreen = ({ navigation }) => {
     const signIn = () => {
         auth
             .signInWithEmailAndPassword(email, password)
-            .catch((error) => alert((errorw)))
+            .catch((error) => alert((error)))
 
     }
 
@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
             />
             <View style={styles.inputContainer}>
                 <Input
-                    placeholder="Emial"
+                    placeholder="E-mail"
                     autoFocus
                     type="email"
                     value={email}
